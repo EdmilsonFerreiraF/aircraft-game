@@ -205,7 +205,32 @@ function start() {
         $("#inimigo1").css("top",posicaoY);
             
         }
+    
+        
 
+// Disparo com o inimigo2
+		
+	if (colisao4.length>0) {
+		
+	inimigo2X = parseInt($("#inimigo2").css("left"));
+	inimigo2Y = parseInt($("#inimigo2").css("top"));
+	$("#inimigo2").remove();
+
+	explosao2(inimigo2X,inimigo2Y);
+	$("#disparo").css("left",950);
+	
+	reposicionaInimigo2();
+		
+	}
+    // jogador com o amigo
+		
+	if (colisao5.length>0) {
+		
+        reposicionaAmigo();
+        $("#amigo").remove();
+        }
+    
+    
     } //Fim da fun��o colisao()
 
     //Explos�o 1
@@ -272,4 +297,24 @@ function reposicionaInimigo2() {
             
             
         } // Fim da fun��o explosao2()
+
+        //Reposiciona Amigo
+	
+	function reposicionaAmigo() {
+	
+        var tempoAmigo=window.setInterval(reposiciona6, 6000);
+        
+            function reposiciona6() {
+            window.clearInterval(tempoAmigo);
+            tempoAmigo=null;
+            
+            if (fimdejogo==false) {
+            
+            $("#fundoGame").append("<div id='amigo' class='anima3'></div>");
+            
+            }
+            
+        }
+        
+    } // Fim da fun��o reposicionaAmigo()
 }
