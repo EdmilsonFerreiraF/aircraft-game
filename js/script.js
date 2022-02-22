@@ -36,7 +36,9 @@ function start() {
     var somPerdido = document.getElementById("somPerdido");
     var somResgate = document.getElementById("somResgate");
 
-
+    //M�sica em loop
+    musica.addEventListener("ended", function () { musica.currentTime = 0; musica.play(); }, false);
+    musica.play();
     //Verifica se o usu�rio pressionou alguma tecla	
 
     $(document).keydown(function (e) {
