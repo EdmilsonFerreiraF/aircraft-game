@@ -146,6 +146,7 @@ function start() {
     function disparo() {
 
         if (podeAtirar == true) {
+            somDisparo.play();
 
             podeAtirar = false;
 
@@ -245,6 +246,7 @@ function start() {
 
         if (colisao5.length > 0) {
             salvos++;
+            somResgate.play();
 
             reposicionaAmigo();
             $("#amigo").remove();
@@ -265,6 +267,8 @@ function start() {
 
     //Explos�o 1
     function explosao1(inimigo1X, inimigo1Y) {
+        somExplosao.play();
+
         $("#fundoGame").append("<div id='explosao1'></div");
         $("#explosao1").css("background-image", "url(img/explosao.png)");
         var div = $("#explosao1");
@@ -307,6 +311,7 @@ function start() {
     //Explos�o2
 
     function explosao2(inimigo2X, inimigo2Y) {
+        somExplosao.play();
 
         $("#fundoGame").append("<div id='explosao2'></div");
         $("#explosao2").css("background-image", "url(img/explosao.png)");
@@ -351,6 +356,8 @@ function start() {
     //Explos�o3
 
     function explosao3(amigoX, amigoY) {
+        somExplosao.play();
+
         $("#fundoGame").append("<div id='explosao3' class='anima4'></div");
         $("#explosao3").css("top", amigoY);
         $("#explosao3").css("left", amigoX);
@@ -392,8 +399,28 @@ function start() {
             $("#energia").css("background-image", "url(img/energia0.png)");
 
             //Game Over
+            gameOver();
         }
 
     } // Fim da fun��o energia()
+//Fun��o GAME OVER
+function gameOver() {
+	fimdejogo=true;
+	musica.pause();
+	somGameover.play();
+	
+	window.clearInterval(jogo.timer);
+	jogo.timer=null;
+	
+	$("#jogador").remove();
+	$("#inimigo1").remove();
+	$("#inimigo2").remove();
+	$("#amigo").remove();
+	
+	$("#fundoGame").append("<div id='fim'></div>");
+	
+	$("#fim").html("<h1> Game Over </h1><p>Sua pontua��o foi: " + pontos + "</p>" + "<div id='reinicia' onClick=reiniciaJogo()><h3>Jogar Novamente</h3></div>");
+	} // Fim da fun��o gameOver();
+
 
 }
