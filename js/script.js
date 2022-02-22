@@ -16,7 +16,7 @@ function start() {
     var pontos = 0;
     var salvos = 0;
     var perdidos = 0;
-    var energiaAtual=3;
+    var energiaAtual = 3;
     var jogo = {}
     var velocidade = 5;
     var posicaoY = parseInt(Math.random() * 334);
@@ -27,6 +27,15 @@ function start() {
     }
 
     jogo.pressionou = [];
+
+
+    var somDisparo = document.getElementById("somDisparo");
+    var somExplosao = document.getElementById("somExplosao");
+    var musica = document.getElementById("musica");
+    var somGameover = document.getElementById("somGameover");
+    var somPerdido = document.getElementById("somPerdido");
+    var somResgate = document.getElementById("somResgate");
+
 
     //Verifica se o usu�rio pressionou alguma tecla	
 
@@ -202,8 +211,8 @@ function start() {
         // Disparo com o inimigo1
 
         if (colisao3.length > 0) {
-            velocidade=velocidade+0.3;
-            pontos=pontos+100;
+            velocidade = velocidade + 0.3;
+            pontos = pontos + 100;
             inimigo1X = parseInt($("#inimigo1").css("left"));
             inimigo1Y = parseInt($("#inimigo1").css("top"));
 
@@ -218,7 +227,7 @@ function start() {
         // Disparo com o inimigo2
 
         if (colisao4.length > 0) {
-            pontos=pontos+50;
+            pontos = pontos + 50;
 
             inimigo2X = parseInt($("#inimigo2").css("left"));
             inimigo2Y = parseInt($("#inimigo2").css("top"));
@@ -354,35 +363,35 @@ function start() {
     } // Fim da fun��o explosao3
 
     function placar() {
-	
+
         $("#placar").html("<h2> Pontos: " + pontos + " Salvos: " + salvos + " Perdidos: " + perdidos + "</h2>");
-        
+
     } //fim da fun��o placar()
-    
-function energia() {
-	
-    if (energiaAtual==3) {
-        
-        $("#energia").css("background-image", "url(img/energia3.png)");
-    }
 
-    if (energiaAtual==2) {
-        
-        $("#energia").css("background-image", "url(img/energia2.png)");
-    }
+    function energia() {
 
-    if (energiaAtual==1) {
-        
-        $("#energia").css("background-image", "url(img/energia1.png)");
-    }
+        if (energiaAtual == 3) {
 
-    if (energiaAtual==0) {
-        
-        $("#energia").css("background-image", "url(img/energia0.png)");
-        
-        //Game Over
-    }
+            $("#energia").css("background-image", "url(img/energia3.png)");
+        }
 
-} // Fim da fun��o energia()
+        if (energiaAtual == 2) {
+
+            $("#energia").css("background-image", "url(img/energia2.png)");
+        }
+
+        if (energiaAtual == 1) {
+
+            $("#energia").css("background-image", "url(img/energia1.png)");
+        }
+
+        if (energiaAtual == 0) {
+
+            $("#energia").css("background-image", "url(img/energia0.png)");
+
+            //Game Over
+        }
+
+    } // Fim da fun��o energia()
 
 }
