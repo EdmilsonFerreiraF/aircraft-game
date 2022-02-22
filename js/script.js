@@ -424,3 +424,13 @@ function gameOver() {
 
 
 }
+
+//Reinicia o Jogo
+		
+function reiniciaJogo() {
+	somGameover.pause();
+	$("#fim").remove();
+	start();
+	
+} //Fim da fun��o reiniciaJogo
+
